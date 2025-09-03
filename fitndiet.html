@@ -723,6 +723,35 @@
             box-shadow: 0 0 0 0.25rem rgba(255, 77, 41, 0.25);
             color: var(--white-color);
         }
+
+        /* Netflix-style intro */
+    #intro-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #intro-logo {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #e50914;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      animation: netflixIntro 2.5s ease forwards;
+    }
+
+    @keyframes netflixIntro {
+      0% { opacity: 0; transform: scale(0.8); text-shadow: none; }
+      30% { opacity: 1; transform: scale(1.1); text-shadow: 0 0 30px #e50914; }
+      60% { transform: scale(1); text-shadow: 0 0 60px #e50914, 0 0 120px #ff2a2a; }
+      100% { opacity: 0; transform: scale(1); text-shadow: none; }
+    }
         
         /* --- Responsive Adjustments --- */
         @media (max-width: 991.98px) {
@@ -790,6 +819,11 @@
 </head>
 <body>
 
+    <!-- Netflix-style Intro -->
+  <div id="intro-overlay">
+    <div id="intro-logo">Happy Birthday Neha</div>
+  </div>
+    
     <!-- Header Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -1344,6 +1378,13 @@
 
     showSlide(current);
   });
+
+        // Hide intro after animation
+    $(document).ready(function(){
+      setTimeout(function(){
+        $('#intro-overlay').fadeOut(800);
+      }, 2500);
+    });
 </script>
 </body>
 </html>
