@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitnexia - Your Fitness Partner</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #ff4d29;
+            --dark-color: #1a1a1a;
+            --secondary-dark-color: #2a2a2a;
+            --light-gray-color: #a0a0a0;
+            --white-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-color);
+            color: var(--white-color);
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            transition: all 0.3s ease-in-out;
+            padding: 1.5rem 0;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--dark-color);
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white-color);
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e63e1e;
+            border-color: #e63e1e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-primary {
+             border-color: var(--primary-color);
+             color: var(--primary-color);
+             border-radius: 50px;
+             padding: 0.75rem 2rem;
+             font-weight: 600;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding-top: 12rem;
+            padding-bottom: 6rem;
+            background-color: #111;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        #hero p {
+            color: var(--light-gray-color);
+            font-size: 1.1rem;
+            margin: 2rem 0;
+        }
+
+        .stats-item {
+            text-align: center;
+        }
+        
+        .stats-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stats-item p {
+            font-size: 1rem;
+            margin-top: -10px;
+            color: var(--light-gray-color);
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+        
+        .hero-image {
+            border-radius: 20px;
+            max-width: 100%;
+        }
+
+        .calorie-card {
+            position: absolute;
+            bottom: 2rem;
+            left: -2rem;
+            background: rgba(42, 42, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .calorie-card .icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .calorie-card h4 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .calorie-card p {
+            margin: 0;
+            color: var(--light-gray-color);
+        }
+
+        /* --- Partners Section --- */
+        #partners {
+            padding: 2rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        #partners .partner-logo {
+            max-height: 25px;
+            filter: grayscale(100%) brightness(2);
+            opacity: 0.6;
+            transition: all 0.3s;
+        }
+        
+        #partners .partner-logo:hover {
+            filter: none;
+            opacity: 1;
+        }
+
+        /* --- General Section Styling --- */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: var(--light-gray-color);
+            margin-bottom: 3rem;
+        }
+
+        /* --- Programs Section --- */
+        .program-card {
+            background-color: var(--secondary-dark-color);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            height: 100%;
+        }
+
+        .program-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            color: var(--light-gray-color);
+            font-size: 0.9rem;
+        }
+
+        .program-card.active, .program-card:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            transform: translateY(-10px);
+        }
+        
+        .program-card.active .icon, .program-card:hover .icon {
+            color: var(--white-color);
+        }
+        
+        .program-card.active p, .program-card:hover p {
+             color: #eee;
+        }
+
+
+        /* --- Choose Us Section --- */
+        #choose-us ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #choose-us li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        #choose-us .icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .choose-us-image-container {
+            position: relative;
+        }
+
+        .choose-us-image {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .info-card {
+             position: absolute;
+             background: rgba(42, 42, 42, 0.8);
+             backdrop-filter: blur(10px);
+             border-radius: 15px;
+             padding: 1rem 1.5rem;
+             display: flex;
+             align-items: center;
+             gap: 1rem;
+             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-card.heart {
+            top: 2rem;
+            right: -2rem;
+        }
+
+        .info-card.calories {
+            bottom: 2rem;
+            left: -3rem;
+        }
+
+        .info-card .icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .info-card h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing-card {
+            background-color: var(--secondary-dark-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid var(--secondary-dark-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+        
+        .pricing-card.active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+        
+        .pricing-card .price span {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .pricing-card.active h3, .pricing-card.active .price, .pricing-card.active ul li {
+            color: var(--white-color);
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+        
+        .pricing-card ul li {
+            margin-bottom: 1rem;
+            color: var(--light-gray-color);
+        }
+        
+        .pricing-card ul li i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .pricing-card.active ul li i {
+            color: var(--white-color);
+        }
+
+        .pricing-card .btn-outline-primary {
+            border-color: var(--primary-color);
+        }
+        
+        .pricing-card .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+        }
+        
+        .pricing-card.active .btn {
+            background-color: var(--white-color);
+            color: var(--primary-color);
+        }
+        
+        .pricing-card.active .btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        /* --- Testimonials Section --- */
+        .testimonial-card {
+            background-color: var(--secondary-dark-color);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+        
+        .testimonial-card .quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--light-gray-color);
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        
+        .author-info h5 {
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .author-info p {
+            color: var(--light-gray-color);
+            margin: 0;
+        }
+
+        .rating .fa-star {
+            color: #ffc107;
+        }
+
+        /* WhatsApp Floating Button */
+ #scrollTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      display: none;
+      background-color: #ff4d29;
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    #scrollTopBtn:hover {
+      background-color: #e03c1d;
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 90px; /* Above scroll-to-top */
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 1.8rem;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe5b;
+      transform: translateY(-5px) scale(1.1);
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      position: fixed;
+      bottom: 155px; /* Above WhatsApp */
+      right: 25px;
+      background: linear-gradient(135deg, #ff4d29, #ff8a29);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    .theme-toggle:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+
+   /* Light Theme Overrides */
+  body.light-theme {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+  }
+
+  body.light-theme .navbar {
+    background-color: #ffffff !important;
+  }
+  body.light-theme .navbar .nav-link,
+  body.light-theme .navbar-brand {
+    color: #212529 !important;
+  }
+
+  body.light-theme footer {
+    background-color: #e9ecef !important;
+    color: #212529 !important;
+  }
+
+  body.light-theme .card {
+    background-color: #ffffff !important;
+    color: #212529 !important;
+    border: 1px solid #dee2e6 !important;
+  }
+
+  body.light-theme .btn-primary {
+    background-color: #ff4d29 !important;
+    border-color: #ff4d29 !important;
+    color: #fff !important;
+  }
+  body.light-theme .btn-primary:hover {
+    background-color: #e03c1d !important;
+    border-color: #e03c1d !important;
+  }
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 155px; /* Above WhatsApp */
+  right: 25px;
+  background: linear-gradient(135deg, #ff4d29, #ff8a29);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.slider-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slider-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5) blur(3px);
+    z-index: 0;
+    transition: background-image 1s ease-in-out;
+  }
+
+  .slider-section .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 380px;
+    overflow: hidden;
+  }
+
+  .card-slide {
+    position: absolute;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.8s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+
+  .card-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Active */
+  .card-slide.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 3;
+  }
+
+  /* Previous */
+  .card-slide.prev {
+    opacity: 0.7;
+    transform: translateX(-320px) scale(0.85);
+    z-index: 2;
+  }
+
+  /* Next */
+  .card-slide.next {
+    opacity: 0.7;
+    transform: translateX(320px) scale(0.85);
+    z-index: 2;
+  }
+
+  /* Hidden */
+  .card-slide.hidden {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  /* Caption */
+  .caption {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  .card-slide.active .caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Dots */
+  .slider-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 4px;
+    background: rgba(255,255,255,0.5);
+    transition: 0.3s;
+  }
+  .slider-dots button.active {
+    background: #ff4d29;
+    transform: scale(1.2);
+  }
+        /* --- Footer --- */
+        footer {
+            background-color: #111;
+            padding: 5rem 0 2rem;
+        }
+        
+        footer h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        footer a {
+            color: var(--light-gray-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+        }
+        
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+        }
+        
+        .form-control {
+            background-color: var(--secondary-dark-color);
+            border-color: #444;
+            color: var(--white-color);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .form-control:focus {
+            background-color: var(--secondary-dark-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(255, 77, 41, 0.25);
+            color: var(--white-color);
+        }
+        
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 991.98px) {
+            #hero {
+                padding-top: 10rem;
+                text-align: center;
+            }
+            .hero-image-container {
+                margin-top: 4rem;
+            }
+            .calorie-card {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -2rem;
+            }
+            .section {
+                padding: 4rem 0;
+            }
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+            .info-card {
+                position: static;
+                margin-top: 1rem;
+            }
+             .choose-us-image-container {
+                margin-top: 3rem;
+            }
+        }
+
+        /* --- Scroll to Top Button --- */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #e63e1e;
+            transform: translateY(-5px);
+            color: var(--white-color);
+        }
+
+        /* --- Video Modal --- */
+        #videoModal .modal-content {
+            background-color: #000;
+            border: 1px solid #333;
+        }
+        #videoModal .modal-body {
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fit-n-Diet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#choose-us">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                </ul>
+                <a href="#pricing" class="btn btn-primary">Join Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1>Get Healthy Body With The Perfect Exercises</h1>
+                    <p>We are always there to help you to make a healthy body and mind through the power of fitness.</p>
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start mb-4">
+                         <a href="#pricing" class="btn btn-primary me-3">Get Started</a>
+                         <a href="#" class="btn btn-outline-light d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#videoModal">
+                            <i class="fas fa-play-circle me-2"></i> Watch Video
+                         </a>
+                    </div>
+                   
+                    <div class="row mt-5">
+                        <div class="col-4 stats-item">
+                            <h3>15+</h3>
+                            <p>Expert Trainers</p>
+                        </div>
+                        <div class="col-4 stats-item">
+                            <h3>317+</h3>
+                            <p>Members Joined</p>
+                        </div>
+                        <div class="col-4 stats-item">
+                            <h3>135+</h3>
+                            <p>Fitness Programs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Fitness couple" class="hero-image">
+                        <div class="calorie-card d-none d-md-flex">
+                            <div class="icon"><i class="fas fa-fire"></i></div>
+                            <div>
+                                <h4>150 Cal</h4>
+                                <p>Burn a day</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                 <div class="col-lg-3 col-md-6 col-6 p-4">
+                     <p class="text-white mb-0"><strong>970K+ More</strong> <br><span class="text-secondary">Trusted companies</span></p>
+                 </div>
+                 <div class="col-lg-2 col-md-3 col-6 p-4">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Videocast_logo.svg" alt="Videocast" class="partner-logo">
+                 </div>
+                 <div class="col-lg-2 col-md-3 col-6 p-4">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/HubSpot_Logo.svg/1280px-HubSpot_Logo.svg.png" alt="Hubspot" class="partner-logo">
+                 </div>
+                 <div class="col-lg-2 col-md-3 col-6 p-4">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Mapbox_logo_2020.svg/2560px-Mapbox_logo_2020.svg.png" alt="Mapbox" class="partner-logo">
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Ready Section -->
+    <section class="section">
+         <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1548690312-e3b511d5b111?q=80&w=1887&auto=format&fit=crop" class="img-fluid rounded-3" alt="Woman at gym">
+                </div>
+                 <div class="col-lg-6">
+                    <h2 class="section-title">Get Ready to Reach Your Fitness Goals</h2>
+                    <p class="section-subtitle">Combining cutting-edge technology with expert trainers, we provide a personalized fitness experience designed to help you succeed. Track your progress, stay motivated, and achieve results faster than ever.</p>
+                    <a href="#" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section bg-black">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title">The Best Programs We Offer For You</h2>
+                    <p class="section-subtitle">We offer a variety of programs to fit your needs. Whether you are a beginner or an advanced athlete, we have a program for you.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="program-card">
+                        <div class="icon"><i class="fas fa-dumbbell"></i></div>
+                        <h3>Strength Training</h3>
+                        <p>Build muscle and increase your strength with our personalized weightlifting programs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="program-card">
+                        <div class="icon"><i class="fas fa-person-praying"></i></div>
+                        <h3>Basic Yoga</h3>
+                        <p>Improve flexibility, balance, and mindfulness with our guided yoga sessions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="program-card active">
+                        <div class="icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Body Building</h3>
+                        <p>Sculpt your physique with our intensive bodybuilding routines and nutritional guidance.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="program-card">
+                        <div class="icon"><i class="fas fa-weight-scale"></i></div>
+                        <h3>Weight Loss</h3>
+                        <p>Achieve your weight loss goals through our effective cardio and diet plans.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="choose-us" class="section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Why Should People Choose Fitnexia Services</h2>
+                    <p class="section-subtitle">We stand out from the competition with our unique features and commitment to your success.</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle icon"></i> Personal trainer</li>
+                        <li><i class="fas fa-check-circle icon"></i> Convienient time</li>
+                        <li><i class="fas fa-check-circle icon"></i> Special equipment</li>
+                        <li><i class="fas fa-check-circle icon"></i> Professional nutrition plan</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary mt-3">Get Started</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="choose-us-image-container">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1820&auto=format&fit=crop" class="choose-us-image" alt="Woman doing yoga">
+                        <div class="info-card heart d-none d-lg-flex">
+                            <div class="icon"><i class="fas fa-heart-pulse"></i></div>
+                             <h5>78 bpm</h5>
+                        </div>
+                        <div class="info-card calories d-none d-lg-flex">
+                            <div class="icon"><i class="fas fa-fire"></i></div>
+                             <h5>246 Cal</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section bg-black">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title">Choose The Best Plan</h2>
+                    <p class="section-subtitle">Select the perfect plan that fits your fitness journey and budget. All plans come with our full support and access to all facilities.</p>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h3>6 Month</h3>
+                        <p class="text-secondary">For beginners</p>
+                        <div class="price">$99 <span>/month</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited gym access</li>
+                            <li><i class="fas fa-check"></i> 2 training programs</li>
+                            <li><i class="fas fa-check"></i> Free conslutation</li>
+                            <li><i class="fas fa-times"></i> Personal trainer</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card active">
+                        <h3>12 Month</h3>
+                        <p>For regulars</p>
+                        <div class="price">$299 <span>/month</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited gym access</li>
+                            <li><i class="fas fa-check"></i> 5 training programs</li>
+                            <li><i class="fas fa-check"></i> Free conslutation</li>
+                            <li><i class="fas fa-check"></i> Personal trainer</li>
+                        </ul>
+                        <a href="#" class="btn">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h3>1 Month</h3>
+                        <p>For trial</p>
+                        <div class="price">$199 <span>/month</span></div>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Unlimited gym access</li>
+                            <li><i class="fas fa-check"></i> 3 training programs</li>
+                            <li><i class="fas fa-check"></i> Free conslutation</li>
+                             <li><i class="fas fa-times"></i> Personal trainer</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   <!-- Current Activities Section -->
+<section class="py-5 text-white slider-section">
+  <div class="slider-bg"></div>
+  <div class="container text-center position-relative">
+    <h2 class="mb-4">🌍 Current Activities</h2>
+
+    <!-- Card Slider -->
+    <div class="card-slider mx-auto">
+      <div class="card-slide active" data-bg="./assets/activities1.png">
+        <img src="./assets/activities1.png" alt="Japan" />
+        <div class="caption">
+          <h3>JAPAN</h3>
+          <p>Discover serene mountain temples shrouded in dusk and ancient forest trails.</p>
+          <button class="btn btn-light">See More</button>
+        </div>
+      </div>
+      <div class="card-slide" data-bg="./assets/activities2.png">
+        <img src="./assets/activities2.png" alt="Ocean" />
+        <div class="caption">
+          <h3>OCEAN</h3>
+          <p>Dive into crystal blue waters and explore endless horizons.</p>
+          <button class="btn btn-light">See More</button>
+        </div>
+      </div>
+      <div class="card-slide" data-bg="./assets/activities3.png">
+        <img src="./assets/activities3.png" alt="Desert" />
+        <div class="caption">
+          <h3>DESERT</h3>
+          <p>Experience golden dunes and the calm of starry desert nights.</p>
+          <button class="btn btn-light">See More</button>
+        </div>
+      </div>
+      <div class="card-slide" data-bg="./assets/activities4.png">
+        <img src="./assets/activities4.png" alt="Forest" />
+        <div class="caption">
+          <h3>FOREST</h3>
+          <p>Wander through lush greenery and discover nature’s secrets.</p>
+          <button class="btn btn-light">See More</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slider-controls mt-3">
+      <button class="slider-prev btn btn-outline-light rounded-circle"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-next btn btn-outline-light rounded-circle"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="slider-dots mt-2"></div>
+  </div>
+</section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="section-title">What Our Happy Clients Say About Us</h2>
+                    <p class="section-subtitle">Real stories from real people. See how Fitnexia has transformed lives and helped our members achieve their dreams.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="testimonial-card">
+                        <p class="quote">"Fitnexia has completely changed my perspective on fitness. The trainers are incredibly supportive, the community is welcoming, and I've never felt stronger or healthier. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                           <div class="author-info">
+                               <img src="https://i.pravatar.cc/150?img=11" alt="Client photo">
+                               <div>
+                                   <h5>Jessica Alba</h5>
+                                   <p>Web Designer</p>
+                               </div>
+                           </div>
+                           <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-3">
+                    <h4 class="navbar-brand">FITNEXIA</h4>
+                    <p class="text-secondary">Your partner in building a healthy body and a sharp mind.</p>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5>Help</h5>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                 <div class="col-lg-3 col-md-4">
+                    <h5>Subscribe To Our Newsletter</h5>
+                     <div class="input-group">
+                         <input type="email" class="form-control" placeholder="Your Email">
+                         <button class="btn btn-primary" type="button"><i class="fas fa-paper-plane"></i></button>
+                     </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center">
+                <p class="text-secondary mb-3 mb-sm-0">&copy; 2024 Fitnexia. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Responsive 16:9 Aspect Ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/gey73xiS8F4?rel=0" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919876543210" target="_blank" id="whatsappBtn" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<!-- Theme Toggle Button -->
+<div id="themeToggle" class="theme-toggle">
+  <i class="fas fa-moon"></i>
+</div>
+
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTopBtn" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                // Navbar scroll effect
+                if ($(this).scrollTop() > 50) {
+                    $('.navbar').addClass('scrolled');
+                } else {
+                    $('.navbar').removeClass('scrolled');
+                }
+
+                // Scroll to top button visibility
+                if ($(this).scrollTop() > 300) {
+                    $('#scrollToTopBtn').fadeIn();
+                } else {
+                    $('#scrollToTopBtn').fadeOut();
+                }
+            });
+
+            // Scroll to top button click event
+            $('#scrollToTopBtn').click(function() {
+                $('html, body').animate({scrollTop : 0}, 800);
+                return false;
+            });
+
+            // Initial theme load from localStorage
+  if (localStorage.getItem("theme") === "light") {
+    $('body').addClass('light-theme').removeClass('bg-dark text-light');
+    $('#themeToggle i').removeClass('fa-moon').addClass('fa-sun');
+  }
+
+  // Toggle theme
+  $('#themeToggle').click(function () {
+    $('body').toggleClass('light-theme');
+
+    if ($('body').hasClass('light-theme')) {
+      $('body').removeClass('bg-dark text-light').addClass('bg-light text-dark');
+      localStorage.setItem("theme", "light");
+      $('#themeToggle i').removeClass('fa-moon').addClass('fa-sun');
+    } else {
+      $('body').removeClass('bg-light text-dark').addClass('bg-dark text-light');
+      localStorage.setItem("theme", "dark");
+      $('#themeToggle i').removeClass('fa-sun').addClass('fa-moon');
+    }
+  });
+
+            // Video Modal Logic to stop video when closed
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                const videoIframe = videoModal.querySelector('iframe');
+                const originalVideoSrc = videoIframe.getAttribute('src');
+
+                videoModal.addEventListener('hide.bs.modal', event => {
+                    videoIframe.setAttribute('src', '');
+                });
+
+                videoModal.addEventListener('show.bs.modal', event => {
+                    videoIframe.setAttribute('src', originalVideoSrc);
+                });
+            }
+        });
+    </script>
+
+    <script>
+  $(document).ready(function(){
+    let slides = $(".card-slide");
+    let current = 0;
+
+    function showSlide(index) {
+      slides.removeClass("active prev next hidden");
+      let total = slides.length;
+      let prev = (index - 1 + total) % total;
+      let next = (index + 1) % total;
+
+      slides.eq(index).addClass("active");
+      slides.eq(prev).addClass("prev");
+      slides.eq(next).addClass("next");
+      slides.not(".active, .prev, .next").addClass("hidden");
+
+      // update background
+      let bg = slides.eq(index).data("bg");
+      $(".slider-bg").css("background-image", `url(${bg})`);
+
+      // update dots
+      $(".slider-dots button").removeClass("active");
+      $(".slider-dots button").eq(index).addClass("active");
+    }
+
+    // create dots
+    slides.each(function(i){
+      $(".slider-dots").append("<button></button>");
+    });
+
+    $(".slider-dots button").click(function(){
+      current = $(this).index();
+      showSlide(current);
+    });
+
+    $(".slider-next").click(function(){
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    });
+
+    $(".slider-prev").click(function(){
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    });
+
+    setInterval(function(){
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 4000);
+
+    showSlide(current);
+  });
+</script>
+</body>
+</html>
+
