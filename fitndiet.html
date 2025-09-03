@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitnexia - Your Fitness Partner</title>
+    <title>Fit-n-Fine - Your Fitness Partner</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -132,6 +132,7 @@
         .hero-image {
             border-radius: 20px;
             max-width: 100%;
+            /* height: 550px; */
         }
 
         .calorie-card {
@@ -162,6 +163,12 @@
         .calorie-card p {
             margin: 0;
             color: var(--light-gray-color);
+        }
+
+        .ready-image{
+            border-radius: 20px;
+            max-width: 100%;
+            height: 500px;
         }
 
         /* --- Partners Section --- */
@@ -268,6 +275,8 @@
         .choose-us-image {
             width: 100%;
             border-radius: 20px;
+            height: 400px;
+            /* object-fit: fill; */
         }
 
         .info-card {
@@ -412,8 +421,8 @@
         }
 
         .author-info img {
-            width: 60px;
-            height: 60px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
         }
         
@@ -784,7 +793,7 @@
     <!-- Header Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Fit-n-Diet</a>
+            <a class="navbar-brand" href="#">Fit-n-Fine</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -802,6 +811,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#activity">Activity</a>
                     </li>
                 </ul>
                 <a href="#pricing" class="btn btn-primary">Join Us</a>
@@ -840,7 +852,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="hero-image-container">
-                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Fitness couple" class="hero-image">
+                        <!-- <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop" alt="Fitness couple" class="hero-image"> -->
+                        <img src="./img/neha2.PNG" alt="Fitness couple" class="hero-image">
+                        
                         <div class="calorie-card d-none d-md-flex">
                             <div class="icon"><i class="fas fa-fire"></i></div>
                             <div>
@@ -855,7 +869,7 @@
     </section>
     
     <!-- Partners Section -->
-    <section id="partners">
+    <!-- <section id="partners">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                  <div class="col-lg-3 col-md-6 col-6 p-4">
@@ -872,19 +886,19 @@
                  </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Get Ready Section -->
     <section class="section">
          <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1548690312-e3b511d5b111?q=80&w=1887&auto=format&fit=crop" class="img-fluid rounded-3" alt="Woman at gym">
+                    <img src="./img/rohit.PNG" class="ready-image" alt="man at gym">
                 </div>
                  <div class="col-lg-6">
                     <h2 class="section-title">Get Ready to Reach Your Fitness Goals</h2>
                     <p class="section-subtitle">Combining cutting-edge technology with expert trainers, we provide a personalized fitness experience designed to help you succeed. Track your progress, stay motivated, and achieve results faster than ever.</p>
-                    <a href="#" class="btn btn-primary">Get Started</a>
+                    <a href="#pricing" class="btn btn-primary">Get Started</a>
                 </div>
             </div>
         </div>
@@ -915,7 +929,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="program-card active">
+                    <div class="program-card">
                         <div class="icon"><i class="fas fa-bolt"></i></div>
                         <h3>Body Building</h3>
                         <p>Sculpt your physique with our intensive bodybuilding routines and nutritional guidance.</p>
@@ -937,7 +951,7 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <h2 class="section-title">Why Should People Choose Fitnexia Services</h2>
+                    <h2 class="section-title">Why Should People Choose Fit-n-Fine Services</h2>
                     <p class="section-subtitle">We stand out from the competition with our unique features and commitment to your success.</p>
                     <ul>
                         <li><i class="fas fa-check-circle icon"></i> Personal trainer</li>
@@ -945,11 +959,13 @@
                         <li><i class="fas fa-check-circle icon"></i> Special equipment</li>
                         <li><i class="fas fa-check-circle icon"></i> Professional nutrition plan</li>
                     </ul>
-                    <a href="#" class="btn btn-primary mt-3">Get Started</a>
+                    <a href="#pricing" class="btn btn-primary mt-3">Get Started</a>
                 </div>
                 <div class="col-lg-6">
                     <div class="choose-us-image-container">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1820&auto=format&fit=crop" class="choose-us-image" alt="Woman doing yoga">
+                        <!-- <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1820&auto=format&fit=crop" class="choose-us-image" alt="Woman doing yoga"> -->
+                        <img src="./img/neha3.PNG" class="choose-us-image" alt="Woman doing yoga">
+                        
                         <div class="info-card heart d-none d-lg-flex">
                             <div class="icon"><i class="fas fa-heart-pulse"></i></div>
                              <h5>78 bpm</h5>
@@ -977,11 +993,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card">
                         <h3>6 Month</h3>
-                        <p class="text-secondary">For beginners</p>
-                        <div class="price">$99 <span>/month</span></div>
+                        <p>For beginners</p>
+                        <div class="price">₹ 999 <span>/month</span></div>
                         <ul>
                             <li><i class="fas fa-check"></i> Unlimited gym access</li>
-                            <li><i class="fas fa-check"></i> 2 training programs</li>
+                            <li><i class="fas fa-check"></i> 3 training programs</li>
                             <li><i class="fas fa-check"></i> Free conslutation</li>
                             <li><i class="fas fa-times"></i> Personal trainer</li>
                         </ul>
@@ -989,27 +1005,27 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                    <div class="pricing-card active">
+                    <div class="pricing-card">
                         <h3>12 Month</h3>
                         <p>For regulars</p>
-                        <div class="price">$299 <span>/month</span></div>
+                        <div class="price">₹ 1499 <span>/month</span></div>
                         <ul>
                             <li><i class="fas fa-check"></i> Unlimited gym access</li>
                             <li><i class="fas fa-check"></i> 5 training programs</li>
                             <li><i class="fas fa-check"></i> Free conslutation</li>
                             <li><i class="fas fa-check"></i> Personal trainer</li>
                         </ul>
-                        <a href="#" class="btn">Choose Plan</a>
+                        <a href="#" class="btn btn-outline-primary">Choose Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="pricing-card">
                         <h3>1 Month</h3>
                         <p>For trial</p>
-                        <div class="price">$199 <span>/month</span></div>
+                        <div class="price">₹ 499 <span>/month</span></div>
                         <ul>
                             <li><i class="fas fa-check"></i> Unlimited gym access</li>
-                            <li><i class="fas fa-check"></i> 3 training programs</li>
+                            <li><i class="fas fa-check"></i> 2 training programs</li>
                             <li><i class="fas fa-check"></i> Free conslutation</li>
                              <li><i class="fas fa-times"></i> Personal trainer</li>
                         </ul>
@@ -1021,42 +1037,42 @@
     </section>
     
    <!-- Current Activities Section -->
-<section class="py-5 text-white slider-section">
+<section  id="activity" class="py-5 text-white slider-section">
   <div class="slider-bg"></div>
   <div class="container text-center position-relative">
-    <h2 class="mb-4">🌍 Current Activities</h2>
+    <h2 class="mb-4"> Current Activities</h2>
 
     <!-- Card Slider -->
     <div class="card-slider mx-auto">
-      <div class="card-slide active" data-bg="./assets/activities1.png">
-        <img src="./assets/activities1.png" alt="Japan" />
+      <div class="card-slide active" data-bg="./img/activities1.png">
+        <img src="./img/activities1.png" alt="Japan" />
         <div class="caption">
-          <h3>JAPAN</h3>
-          <p>Discover serene mountain temples shrouded in dusk and ancient forest trails.</p>
+          <h3>Power Lifting Championship</h3>
+          <p>Current Power Lifting Championship.</p>
           <button class="btn btn-light">See More</button>
         </div>
       </div>
-      <div class="card-slide" data-bg="./assets/activities2.png">
-        <img src="./assets/activities2.png" alt="Ocean" />
+      <div class="card-slide" data-bg="./img/activities2.png">
+        <img src="./img/activities2.png" alt="Ocean" />
         <div class="caption">
-          <h3>OCEAN</h3>
-          <p>Dive into crystal blue waters and explore endless horizons.</p>
+          <h3>Athlete Gathering</h3>
+          <p>Current Athlete Gathering.</p>
           <button class="btn btn-light">See More</button>
         </div>
       </div>
-      <div class="card-slide" data-bg="./assets/activities3.png">
-        <img src="./assets/activities3.png" alt="Desert" />
+      <div class="card-slide" data-bg="./img/activities3.png">
+        <img src="./img/activities3.png" alt="Desert" />
         <div class="caption">
-          <h3>DESERT</h3>
-          <p>Experience golden dunes and the calm of starry desert nights.</p>
+          <h3>Gym Arena</h3>
+          <p>Current Gym Arena.</p>
           <button class="btn btn-light">See More</button>
         </div>
       </div>
-      <div class="card-slide" data-bg="./assets/activities4.png">
-        <img src="./assets/activities4.png" alt="Forest" />
+      <div class="card-slide" data-bg="./img/neha4.PNG">
+        <img src="./img/neha4.PNG" alt="Forest" />
         <div class="caption">
-          <h3>FOREST</h3>
-          <p>Wander through lush greenery and discover nature’s secrets.</p>
+          <h3>Get Ready to Fit</h3>
+          <p>Current Get Ready to Fit.</p>
           <button class="btn btn-light">See More</button>
         </div>
       </div>
@@ -1078,19 +1094,41 @@
             <div class="row justify-content-center text-center">
                 <div class="col-lg-8">
                     <h2 class="section-title">What Our Happy Clients Say About Us</h2>
-                    <p class="section-subtitle">Real stories from real people. See how Fitnexia has transformed lives and helped our members achieve their dreams.</p>
+                    <p class="section-subtitle">Real stories from real people. See how Fit-n-Fine has transformed lives and helped our members achieve their dreams.</p>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="testimonial-card">
-                        <p class="quote">"Fitnexia has completely changed my perspective on fitness. The trainers are incredibly supportive, the community is welcoming, and I've never felt stronger or healthier. Highly recommended!"</p>
+                        <p class="quote">"Fit-n-Fine has completely changed my perspective on fitness. The trainers are incredibly supportive, the community is welcoming, and I've never felt stronger or healthier. Highly recommended!"</p>
                         <div class="testimonial-author">
                            <div class="author-info">
-                               <img src="https://i.pravatar.cc/150?img=11" alt="Client photo">
+                               <img src="./img/neha.PNG" alt="Client photo">
                                <div>
-                                   <h5>Jessica Alba</h5>
-                                   <p>Web Designer</p>
+                                   <h5>Neha Duniwal</h5>
+                                   <p>Power Lifter</p>
+                               </div>
+                           </div>
+                           <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <p class="quote">"Fit-n-Fine has completely changed my perspective on fitness. The trainers are incredibly supportive, the community is welcoming, and I've never felt stronger or healthier. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                           <div class="author-info">
+                               <img src="./img/neha.PNG" alt="Client photo">
+                               <div>
+                                   <h5>Neha Duniwal</h5>
+                                   <p>Power Lifter</p>
                                </div>
                            </div>
                            <div class="rating">
@@ -1112,11 +1150,11 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-3">
-                    <h4 class="navbar-brand">FITNEXIA</h4>
+                    <h4 class="navbar-brand">Fit-n-Fine</h4>
                     <p class="text-secondary">Your partner in building a healthy body and a sharp mind.</p>
                 </div>
                 <div class="col-lg-3 col-md-4">
-                    <h5>Company</h5>
+                    <h5>Trainers</h5>
                     <ul>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Careers</a></li>
@@ -1142,7 +1180,7 @@
                 </div>
             </div>
             <div class="footer-bottom d-flex flex-column flex-sm-row justify-content-between align-items-center">
-                <p class="text-secondary mb-3 mb-sm-0">&copy; 2024 Fitnexia. All rights reserved.</p>
+                <p class="text-secondary mb-3 mb-sm-0">&copy; 2025 Fit-n-Fine. All rights reserved.</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1163,7 +1201,7 @@
                 <div class="modal-body">
                     <!-- Responsive 16:9 Aspect Ratio -->
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/gey73xiS8F4?rel=0" title="YouTube video" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/CF4Lk0X5EyY?si=juytDeW_v7H177Hl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
